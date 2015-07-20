@@ -13,7 +13,7 @@ categories:
 authors: [dn]
 ---
 
-In the last blog post I discussed [the shopware hook system](http://localhost:8000/blog/2015/06/09/understanding-the-shopware-hook-system/)
+In the last blog post I discussed [the shopware hook system](http://devdocs.shopware.com/blog/2015/06/09/understanding-the-shopware-hook-system/)
 and also mentioned, that hooks are technically a way to address cross cutting concerns with an AOP approach.
 In this blog entry I want to have a deeper look into cross cutting concerns and ways to address them in PHP.
 
@@ -261,9 +261,11 @@ as one of the main goals for our event system, by-reference changes of context o
 on the return value of an event, are not ideal but hard to avoid. 
 
 ## Command Bus
-The command bus is based on the [command pattern](https://en.wikipedia.org/wiki/Command_pattern) and also allows you to address
-cross cutting concerns easily. The generally idea is, to not call services directly, but have a "command bus" service, which
-"dispatched" your commands to the corresponding handler. The `Cart` example above might look like this:
+The command bus is based on the [command pattern](https://en.wikipedia.org/wiki/Command_pattern) extended by an additional service layer
+and also allows you to address cross cutting concerns easily. The generally idea is, to not call services directly, but
+have a "command bus" service, which "dispatched" your commands to the corresponding handler.
+
+The `Cart` example above might look like this:
 
 ```
 class PurchaseCommand
@@ -368,7 +370,7 @@ Often it is argued, that Commands should not return anything. This, however, see
 even though a CommandBus does not necessarily imply CQS. 
 
 ## AOP
-As discussed in [the shopware hook system](http://localhost:8000/blog/2015/06/09/understanding-the-shopware-hook-system/),
+As discussed in [the shopware hook system](http://devdocs.shopware.com/blog/2015/06/09/understanding-the-shopware-hook-system/),
 AOP is another approach to handle cross cutting concerns. In difference to the pattern based approaches above, AOP
 is a programming paradigm, that (usually) addresses this kind of issues on a language base. 
 Due to the complexity of the topic, we will discuss AOP in a separate blog post and try to implement [Go AOP PHP](https://github.com/lisachenko/go-aop-php)
