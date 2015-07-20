@@ -367,7 +367,11 @@ As the `CommandBus` addresses the service layer itself, its not a "drop in" solu
 in many cases. Especially in legacy applications with a tangled service layer, refactoring the services into small command
 handlers might not always be that easy to accomplish. When it comes to returning results, things even get a bit disputable:
 Often it is argued, that Commands should not return anything. This, however, seems to refer to [CQS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation)
-even though a CommandBus does not necessarily imply CQS. 
+even though a CommandBus does not necessarily imply CQS. Anyway: Usually the [domain event pattern](http://martinfowler.com/eaaDev/DomainEvent.html) is the recommended
+solution for this kind of problems, a small PHP example can be found in Benjamin Eberlei's blog post
+[Decoupling applications with domain events](http://www.whitewashing.de/2012/08/25/decoupling_applications_with_domain_events.html). 
+
+
 
 ## AOP
 As discussed in [the shopware hook system](http://devdocs.shopware.com/blog/2015/06/09/understanding-the-shopware-hook-system/),
