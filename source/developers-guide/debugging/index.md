@@ -135,6 +135,15 @@ After clearing the cache and refreshing the page, Smarty will generate a new win
 
 As you can see, you have a nice overview of all variables and assignments.
 
+Only show content for your own ip address:
+```
+{block name='frontend_index_html'}
+{if $smarty.server.REMOTE_ADDR == '192.168.2.1'}
+{debug}
+{/if}
+{/block}
+```
+
 ### Debug Plugin
 
 Shopware also ships with a plugin called "debug" which will allow you to print out template assignments to the `console` tab of your developer tools window. Just install the plugin using Shopware's plugin manager, configure it to your needs and reload the page.
